@@ -17,7 +17,7 @@
 # 2 
 ## :baby_chick: User vs :rooster: Kernel Mode
 
-| Tipo de Kernel       | User            | Kernel Mode     |
+| ""Tipo de Kernel""       | User            | Kernel Mode     |
 |----------------------|-----------------|-----------------|
 |Ubicación en el CPU Kernel |Accesible al usuario |Accesible solo al Kernel |
 |Permisos | Restringidos| Acceso completo a todos los recursos|
@@ -36,16 +36,16 @@
 ---
 
 # 3 
-## Interruptions vs Traps
+## Interruptions :red_circle: vs Traps :yellow_circle:
 
 |                      | Interruptions   | Traps           |
 |----------------------|-----------------|-----------------|
-|Definicion|Es una señal al procesador emitida por el hardware que indica un evento que necesita atencion inmediata|Es una señal proviniente de un programa de usuario qu eindica que el sistema operativo dbe realizar alguna funcionalidad inmediatamente|
-|Origen|Generadas por eventos externos o hardware.|Generadas por el propio programa en ejecucion|
-|causas|Eventos externos como temporizadores, dispositivos de entrada/salida | Instrucciones especificas en el codigo del programa|
-|Manejo |Requiere un controlador de interrupciones para determinar la accion a tomar. puden cambiar el contexto de ejecucion|Manejadas directametne por el sistema operativo|Pueden generar una excepcion en el programa|
-|Privilegios|puden ocurrir en cualquier nivel de privilegio|Suelen ocurrir en modo usuario y se utilizan para transacciones controladas al modo kernel|
-|Ejemplos|-Interrupcion de temporizador -Interrupcion de disco -Interrupcion de red|-Division por cero -llamada al sistema -excepcion de punto flotante|
-|Uso comun| Manejo de eventos externos, multitareas, eficiencia de recursos|Manejo de errores especificos del programa, llamadas al sistema|
-|Ventajas|Permite manejar eficientemente eventos externos sin bloquear la ejecucion - Mejora la multitarea y la eficiencia del sistema| -Facilita el manejo de errores y excepciones en el programa. -Proporciona un mecanismo controlado por transacciones al modo kernel|
-|Desventajas|-Puede introducir complejidad a la gestion del sistema. -Riesgo de errores debido a la necesidad de manejar multiples interrupciones.|-Limitadas a eventos generados internamente por el programa.-No pueden manejar eventos externos|
+|Definición |Es una señal al procesador emitida por el hardware que indica un evento que necesita atención inmediata |Es una señal proveniente de un programa de usuario que indica que el sistema operativo debe realizar alguna funcionalidad inmediatamente|
+|Origen | Generadas por eventos externos o hardware. | Generadas por el propio programa en ejecución|
+|causas | Eventos externos como temporizadores, dispositivos de entrada/salida | Instrucciones especificas en el código del programa|
+|Manejo |Requiere un controlador de interrupciones para determinar la acción a tomar. puden cambiar el contexto de ejecución |Manejadas directamente por el sistema operativo | Pueden generar una excepción en el programa|
+|Privilegios | pueden ocurrir en cualquier nivel de privilegio | Suelen ocurrir en modo usuario y se utilizan para transacciones controladas al modo Kernel |
+|Ejemplos|-Interrupción de temporizador -Interrupción de disco -Interrupción de red|-División por cero -llamada al sistema -excepción de punto flotante|
+|Uso común| Manejo de eventos externos, multitareas, eficiencia de recursos |Manejo de errores específicos del programa, llamadas al sistema|
+|Ventajas |Permite manejar eficientemente eventos externos sin bloquear la ejecución - Mejora la multitarea y la eficiencia del sistema| -Facilita el manejo de errores y excepciones en el programa. -Proporciona un mecanismo controlado por transacciones al modo Kernel|
+|Desventajas|-Puede introducir complejidad a la gestión del sistema. -Riesgo de errores debido a la necesidad de manejar múltiples interrupciones. |-Limitadas a eventos generados internamente por el programa.-No pueden manejar eventos externos|
