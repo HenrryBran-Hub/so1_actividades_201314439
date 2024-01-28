@@ -5,12 +5,8 @@
 
 | Tipo de Kernel       | Descripción     | Ventajas        | Desventajas     | Ejemplos        | Otros puntos    |
 |----------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Monolítico 
-|Es un sistema operativo en que el núcleo y los servicios del sistema operativo se ejecutan en el mismo espacio e memoria, todas sus funcionalidades(gestion de memoria, controladores etc.) residen en el kernel. 
-|Rendimiento eficiente debido a que la comunicacion es directa.
-|Menor modularidad.
-|Linux, Windows NT.
-|Menor sobrecarga entre módulos|
+|Monolítico|Es un sistema operativo en que el núcleo y los servicios del sistema operativo se ejecutan en el mismo espacio e memoria, todas sus funcionalidades(gestion de memoria, controladores etc.) residen en el kernel.|Rendimiento eficiente debido a que la comunicacion es directa.|Menor modularidad.|Linux, Windows NT.|Menor sobrecarga entre módulos|
+
 
 #2 
 ## User vs Kernel Mode
