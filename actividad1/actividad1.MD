@@ -1,6 +1,6 @@
 ![Actividad 1](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad1/Imagenes/img1.png)
 
-#1 
+# 1 
 ## Tipos de Kernel y sus diferencias :desktop_computer:
 
 | Tipo de Kernel       | Descripción     | Ventajas        | Desventajas     | Ejemplos        | Otros puntos    |
@@ -14,27 +14,28 @@
 
 ---
 
-#2 
+# 2 
 ## :baby_chick: User vs :rooster: Kernel Mode
 
 | Tipo de Kernel       | User            | Kernel Mode     |
 |----------------------|-----------------|-----------------|
-|Ubicacion en el CPU kernel|Accesible al usuario |Accesible solo al kernel|
-|Permisos|Restringidos|Acceso completo a todos los recursos|
-|Ejecucion de codigo|Ejecuta aplicaciones y programas de usuairo|Ejecuta el nucleo del sistema operativo|
-|Interrupciones y exepciones|No puede manejar interrupciones del hardware|pude manejar interrupciones del hardware y excepciones|
-|Capacidad para acceder a hardware|No pude realizar operaciones directas en el hardware|Si puede realizar operaciones directas en el hardware|
-|Proteccion de memoria|Limitada por el sistema operativo y el hardware|Mayor proteccion debido a privilegios elevados|
-|Tiempo de ejecucion interrumpible|Puedeser interrumpido por el sistema opertavio o enetos externos|Generalmente se ejecuta sin interrupciones|
-|Ventajas|-Aislamiento de aplicaciones -Mayor estabilidad del sistema - Mayor seguridad debido a las restricciones de privilegios|-Acceso completo a los recursos del sistema -Mayor control y gestion del sistema -Capacidad para mejorar interrupciones|
-|Desventajas|-Limitaciones en el acceso a recursos del sistema -Menor capacidad para realizar operaciones de bajo nivel directamente en el hardware|-Mayor riesgo de errores y fallos criticos -Mayor complejidad en el desarrollo de codigo de kernel -Menor estabilidad si ocurre un error|
-|Modos|Tambien se conoce como modo no priviligeado,modo restringido o modo esclavo|Tambien conocido como modo privilegiado modo maestro o modo sistema|
-|Bloqueo del sistema|un bloque se recupera simplemente reanudando la sesion|Es grave y complica las cosas|
-|Referencias de memoria|Solo accede a la memoria asignada para su modo|Puede hacer referencias tanto a las areas de memoria del modo usuario como del modo kernel|
+|Ubicación en el CPU Kernel |Accesible al usuario |Accesible solo al Kernel |
+|Permisos | Restringidos| Acceso completo a todos los recursos|
+|Ejecución de código | Ejecuta aplicaciones y programas de usuario |Ejecuta el núcleo del sistema operativo|
+|Interrupciones y excepciones |No puede manejar interrupciones del hardware | puede manejar interrupciones del hardware y excepciones|
+|Capacidad para acceder a hardware |No pude realizar operaciones directas en el hardware |Si puede realizar operaciones directas en el hardware|
+|Protección de memoria | Limitada por el sistema operativo y el hardware | Mayor protección debido a privilegios elevados|
+|Tiempo de ejecución interrumpible | Puede ser interrumpido por el sistema operativo o eventos externos | Generalmente se ejecuta sin interrupciones|
+|Ventajas|-Aislamiento de aplicaciones -Mayor estabilidad del sistema - Mayor seguridad debido a las restricciones de privilegios|-Acceso completo a los recursos del sistema -Mayor control y gestión del sistema -Capacidad para mejorar interrupciones|
+|Desventajas|-Limitaciones en el acceso a recursos del sistema -Menor capacidad para realizar operaciones de bajo nivel directamente en el hardware|-Mayor riesgo de errores y fallos críticos -Mayor complejidad en el desarrollo de código de Kernel -Menor estabilidad si ocurre un error|
+|Modos| También se conoce como modo no privilegiado, modo restringido o modo esclavo | También conocido como modo privilegiado modo maestro o modo sistema|
+|Bloqueo del sistema | Un bloque se recupera simplemente reanudando la sesión | Es grave y complica las cosas|
+|Referencias de memoria | Solo accede a la memoria asignada para su modo | Puede hacer referencias tanto a las áreas de memoria del modo usuario como del modo Kernel|
+
 
 ---
 
-#3 
+# 3 
 ## Interruptions vs Traps
 
 |                      | Interruptions   | Traps           |
