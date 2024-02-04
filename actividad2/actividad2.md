@@ -104,7 +104,7 @@ Mostramos como se efectuo el cambio con syslog
 tail -f /var/log/syslog
 ```
 Mostramos como esta el crontab en la terminal y como se esta ejecutando
-![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO3.gif)
+![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRON3.gif)
 ---
 
 
