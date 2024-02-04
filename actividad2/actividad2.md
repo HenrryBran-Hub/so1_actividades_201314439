@@ -15,10 +15,9 @@ Creamos un script llamado Tarea2.sh  y despues ingresamos a el y hacemos lo sigu
 
 3. De la variable RESPONSE se sacan los datos para las variables solicitadas
 ![SGV](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GV.gif)
----
 
 ### NOTA:
-para ejecutar el comando *jq* se instala el mismo con el siguiente comando:
+Para ejecutar el comando *jq* se instala el mismo con el siguiente comando:
 ![SJP](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-JP.gif)
 ---
 
