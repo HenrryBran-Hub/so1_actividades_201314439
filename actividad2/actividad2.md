@@ -6,41 +6,42 @@ Creamos un script llamado Tarea2.sh  y despues ingresamos a el y hacemos lo sigu
 ---
 
 1. Primero se crea la variables del GITHUB_USER y otra variable API_URL para la toma de datos
-![S-GU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GU.png)
+![SGU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GU.gif)
 ---
 
 2. Se toman los datos y se ingresan a la variable RESPONSE
-![S-GD](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GD.gif)
+![SGD](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GD.gif)
 ---
 
 3. De la variable RESPONSE se sacan los datos para las variables solicitadas
-![S-GV](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GV.gif)
+![SGV](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GV.gif)
 ---
 
 ### NOTA:
 para ejecutar el comando *jq* se instala el mismo con el siguiente comando:
-![S-JP](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-JP.gif)
+![SJP](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-JP.gif)
 ---
 
 4. Se crea el mensaje en una variable y se muestra
-![S-PR](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-PR.gif)
+![SPR](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-PR.gif)
 ---
 
 5. Por ultimo se crea la carpeta y el archivo log con el nombre *saludos.log* y la carpeta en */tmp/date*
-![S-LO](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LO.gif)
+![SLO](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LO.gif)
 ---
 
 6. Ejecutamos para probar pero antes tenemos que darle permisos de ejecucion al archivo creado
+
 A. Permisos al archivo(buscamos en la carpeta donde lo creamos y ejecutamos lo siguiente)
-![S-SU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-SU.gif)
+![SSU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-SU.gif)
 ---
 
 B. Ejecutamos el archivo
-![S-FUN](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-FUN.gif)
+![SFUN](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-FUN.gif)
 ---
 
 7. Comprobamos la cracion de la carpeta y el archivo 
-![S-LOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LOG.gif)
+![SLOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LOG.gif)
 ---
 
 ## adjuntamos script 
