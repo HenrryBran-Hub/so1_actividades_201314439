@@ -85,3 +85,27 @@ echo "$MSG" >> "$LOG_FILE"
 
 ## Creacion del cronjob
 
+Comando para la creacion del crontab, este lo ingresamos en la terminal y no importa la ruta donde lo ejecute siempre y cuando se ponga vien la ruta donde este el archivo a ejecutarse
+
+```javascript
+(crontab -l ; echo "*/2 * * * * cd /home/henrrybran/Documents/SO1-2024/Actividades-Clase/so1_actividades_201314439/actividad2/ && ./Tarea2.sh") | crontab -
+```
+---
+
+![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO.gif)
+---
+
+Mostramos como esta el crontab en la terminal y como se esta ejecutando
+![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO2.gif)
+---
+
+Mostramos como se efectuo el cambio con syslog 
+```javascript
+tail -f /var/log/syslog
+```
+Mostramos como esta el crontab en la terminal y como se esta ejecutando
+![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO3.gif)
+---
+
+
+
