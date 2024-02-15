@@ -9,7 +9,7 @@
 |Microkernel| En este solo las funciones esenciales del núcleo (gestión de memoria, gestión de comunicación etc.) residen en el Kernel. los servicios adicionales se ejecutan en modo usuario. | Mayor modularidad, menor riesgo a fallos. | Menor rendimiento, implementación más compleja| QNX, MINIX, Hurd. |Los servicios en el espacio del usuario mejoran la estabilidad. |
 |Hibrido| Combina características de Kernel monolíticos y Microkernel. |Combinación de rendimiento y Modularidad. |Puede heredar las desventajas| Windows Nt, MacOS X, Solaris. |Equilibra rendimiento y modularidad|
 |Exokernel | Delega funciones del sistema operativo al espacio del usuario, permitiendo mayor control sobre los recursos del hardware. |Alta flexibilidad y control para las aplicaciones, Eficiencia y optimización de recursos. |Mayor complejidad, Riesgo a incompatibilidad. | ExoOS, Nemesis. | Mayor control a las aplicaciones por delegación de políticas. |
-|NanoKernel | Solo proporciona funciones esenciales, dejando la mayoría de funciones del sistema operativo a servicios externos. | Mínimo consumo de recursos, Mayor seguridad. | Menos funcionalidades integradas. | Sistemas embebidos, como Amoeba, RaOS, RadiOS, L4| Simplicidad y seguridad|
+|NanoKernel | Solo proporciona funciones esenciales, dejando la mayoría de funciones del sistema operativo a servicios externos. | Mínimo consumo de recursos, Mayor seguridad. | Menos funcionalidades integradas. | Sistemas embebidos, como Amoeba, RaOS, RadiOS, L4| Simplicidad y seguridad.|
 
 
 ---
