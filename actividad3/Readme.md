@@ -1,121 +1,131 @@
-![SA](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-A.png)
+![10](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/10.png)
 
 ## Creacion de Script
 
 ## Creamos un script llamado saludoscript.sh y un servicio llamado saludo.service:
 
-1. Primero se crea la variables del GITHUB_USER y otra variable API_URL para la toma de datos
-   ![SGU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GU.gif)
+1. Primero Creamos los archivos  en la carpeta /home/henrrybran/Documents/Servicio/ con el siguiente contenido:
 
----
-
-2. Se toman los datos y se ingresan a la variable RESPONSE
-   ![SGD](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GD.gif)
-
----
-
-3. De la variable RESPONSE se sacan los datos para las variables solicitadas
-   ![SGV](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GV.gif)
-
-### NOTA:
-
-Para ejecutar el comando _jq_ se instala el mismo con el siguiente comando:
-![SJP](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-JP.gif)
-
----
-
-4. Se crea el mensaje en una variable y se muestra
-   ![SPR](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-PR.gif)
-
----
-
-5. Por ultimo se crea la carpeta y el archivo log con el nombre _saludos.log_ y la carpeta en _/tmp/date_
-   ![SLO](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LO.gif)
-
----
-
-6. Ejecutamos para probar pero antes tenemos que darle permisos de ejecucion al archivo creado
-
-A. Permisos al archivo(buscamos en la carpeta donde lo creamos y ejecutamos lo siguiente)
-![SSU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-SU.gif)
-
----
-
-B. Ejecutamos el archivo
-![SFUN](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-FUN.gif)
-
----
-
-7. Comprobamos la cracion de la carpeta y el archivo
-   ![SLOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LOG.gif)
-
----
-
-## adjuntamos script
+## adjuntamos script de saludo
 
 ```javascript
 #!/bin/bash
-
-# Declaramos la variable
-GITHUB_USER="HenrryBran-Hub"
-
-# Declaramos la direccion con la variable anterior
-API_URL="https://api.github.com/users/${GITHUB_USER}"
-
-# Ingresamos el reultado del curl a una variable que castearemos despues
-RESPONSE=$(curl -s "$API_URL")
-
-# Extraemos los datos de la variable RESPONSE github_user
-github_user=$(echo "$RESPONSE" | jq -r '.login')
-# Extraemos los datos de la variable RESPONSE github_id
-github_id=$(echo "$RESPONSE" | jq -r '.id')
-# Extraemos los datos de la variable RESPONSE github_created_at
-github_created_at=$(echo "$RESPONSE" | jq -r '.created_at')
-
-# Imprimimos mensaje
-MSG="Hola $github_user. User Id: $github_id. Cuenta fue creada el: $github_created_at."
-echo "$MSG"
-
-# ---------------CREAMOS EL LOG---------------
-# Obtenemos fecha
-FECHA=$(date +'%Y%m%d')
-
-# Creamos el directorio
-PATH_LOG="/tmp/$FECHA/"
-mkdir -p "$PATH_LOG"
-
-# Creamos el archivo log
-LOG_FILE="$PATH_LOG/saludos.log"
-
-# Escribimos el log
-echo "$MSG" >> "$LOG_FILE"
-
+while true; do
+    FECHA=$(date +'%Y%m%d')
+    echo "Hola, la fecha actual es: $FECHA"
+    sleep 1
+done
 ```
+___
+___
 
-## Creacion del cronjob
-
-Comando para la creacion del crontab, este lo ingresamos en la terminal y no importa la ruta donde lo ejecute siempre y cuando se ponga vien la ruta donde este el archivo a ejecutarse
+## adjuntamos script de saludo de servicio
 
 ```javascript
-(crontab -l ; echo "*/2 * * * * cd /home/henrrybran/Documents/SO1-2024/Actividades-Clase/so1_actividades_201314439/actividad2/ && ./Tarea2.sh") | crontab -
+[Unit]
+Description=Servicio de saludo infinito
+
+[Service]
+ExecStart=/home/henrrybran/Documents/Servicio/saludoscript.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+___
+
+   ![1](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/1.gif)
+
+### NOTA: Habilitar el archivo como ejecutable
+   ![5](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/5.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+chmod +x /home/henrrybran/Documents/Servicio/saludoscript.sh
 ```
 
 ---
 
-## ![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO.gif)
+2. Ejecutamos comando para mover
 
-Mostramos como esta el crontab en la terminal y como se esta ejecutando
-![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO2.gif)
+   ![2](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/2.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+sudo mv saludo.service /etc/systemd/system/
+```
 
 ---
 
-Mostramos como se efectuo el cambio con syslog
+3. Habilitamos el servicio
+   ![3](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/3.gif)
+
+### Ejecutamos el siguiente comando
 
 ```javascript
-tail -f /var/log/syslog
+sudo systemctl enable saludo.service
+```
+---
+
+4. Iniciamos el servicio
+   ![4](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/4.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+sudo systemctl start saludo.service
 ```
 
-Mostramos como esta el crontab en la terminal y como se esta ejecutando
-![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRON3.gif)
+---
+
+5. Verificamos estatus del servicio
+   ![6](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/6.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+sudo systemclt status saludo.service
+```
+Otra forma de verificar el servicio seria listar los servicios
+   ![7](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/7.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+systemctl list-units --type=service
+```
+
+Otra forma seria mediante los logs de servicios
+
+### Ejecutamos el siguiente comando
+
+```javascript
+journalctl -u saludo.service
+```
+
+---
+
+6. Paramos el servicio
+   ![8](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/8.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+sudo systemclt stop saludo.service
+```
+
+---
+
+7. Eliminamos el servicio
+   ![SLOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/1.gif)
+
+### Ejecutamos el siguiente comando
+
+```javascript
+sudo systemctl disable saludo.service
+sudo rm /etc/systemd/system/saludo.service
+```
 
 ---
