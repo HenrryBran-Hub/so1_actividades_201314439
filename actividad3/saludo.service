@@ -1,0 +1,9 @@
+[Unit]
+Description=Servicio de saludo infinito
+
+[Service]
+ExecStart=/home/henrrybran/Documents/Servicio/saludoscript.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
