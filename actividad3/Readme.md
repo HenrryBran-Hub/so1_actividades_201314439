@@ -6,8 +6,7 @@
 
 1. Primero Creamos los archivos  en la carpeta /home/henrrybran/Documents/Servicio/ con el siguiente contenido:
 
-## adjuntamos script de saludo
-
+#### adjuntamos script de saludo
 ```javascript
 #!/bin/bash
 while true; do
@@ -16,11 +15,8 @@ while true; do
     sleep 1
 done
 ```
-___
-___
 
-## adjuntamos script de saludo de servicio
-
+#### adjuntamos script de saludo de servicio
 ```javascript
 [Unit]
 Description=Servicio de saludo infinito
@@ -32,15 +28,14 @@ Restart=always
 [Install]
 WantedBy=multi-user.target
 ```
-___
 
    ![1](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/1.gif)
 
-### NOTA: Habilitar el archivo como ejecutable
+#### NOTA: Habilitar el archivo como ejecutable
+
    ![5](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/5.gif)
 
 ### Ejecutamos el siguiente comando
-
 ```javascript
 chmod +x /home/henrrybran/Documents/Servicio/saludoscript.sh
 ```
@@ -51,8 +46,7 @@ chmod +x /home/henrrybran/Documents/Servicio/saludoscript.sh
 
    ![2](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/2.gif)
 
-### Ejecutamos el siguiente comando
-
+#### Ejecutamos el siguiente comando
 ```javascript
 sudo mv saludo.service /etc/systemd/system/
 ```
@@ -60,9 +54,10 @@ sudo mv saludo.service /etc/systemd/system/
 ---
 
 3. Habilitamos el servicio
+
    ![3](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/3.gif)
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 sudo systemctl enable saludo.service
@@ -70,9 +65,10 @@ sudo systemctl enable saludo.service
 ---
 
 4. Iniciamos el servicio
+
    ![4](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/4.gif)
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 sudo systemctl start saludo.service
@@ -81,17 +77,19 @@ sudo systemctl start saludo.service
 ---
 
 5. Verificamos estatus del servicio
+
    ![6](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/6.gif)
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 sudo systemclt status saludo.service
 ```
 Otra forma de verificar el servicio seria listar los servicios
+
    ![7](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/7.gif)
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 systemctl list-units --type=service
@@ -99,7 +97,7 @@ systemctl list-units --type=service
 
 Otra forma seria mediante los logs de servicios
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 journalctl -u saludo.service
@@ -108,9 +106,10 @@ journalctl -u saludo.service
 ---
 
 6. Paramos el servicio
+
    ![8](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/8.gif)
 
-### Ejecutamos el siguiente comando
+#### Ejecutamos el siguiente comando
 
 ```javascript
 sudo systemclt stop saludo.service
@@ -119,9 +118,10 @@ sudo systemclt stop saludo.service
 ---
 
 7. Eliminamos el servicio
-   ![SLOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/1.gif)
 
-### Ejecutamos el siguiente comando
+   ![9](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad3/Img/9.gif)
+
+#### Ejecutamos el siguiente comando
 
 ```javascript
 sudo systemctl disable saludo.service
