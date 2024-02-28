@@ -1,121 +1,99 @@
-![SA](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-A.png)
+![8](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/8.png)
 
-## Creacion de Script
+## CRACION DE CHAT
 
-## Creamos un script llamado saludoscript.sh y un servicio llamado saludo.service:
+1. Creamos los pipes 
+   ![1](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/1.gif)
 
-1. Primero se crea la variables del GITHUB_USER y otra variable API_URL para la toma de datos
-   ![SGU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GU.gif)
-
----
-
-2. Se toman los datos y se ingresan a la variable RESPONSE
-   ![SGD](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GD.gif)
+```javascript
+mkfife usuario1_entrada usuario1_salida usuario2_entrada usuario2_salida
+```
 
 ---
 
-3. De la variable RESPONSE se sacan los datos para las variables solicitadas
-   ![SGV](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-GV.gif)
+2. Mostramos los pipes
+   ![2](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/2.gif)
 
-### NOTA:
-
-Para ejecutar el comando _jq_ se instala el mismo con el siguiente comando:
-![SJP](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-JP.gif)
-
----
-
-4. Se crea el mensaje en una variable y se muestra
-   ![SPR](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-PR.gif)
+```javascript
+ls -l
+```
 
 ---
 
-5. Por ultimo se crea la carpeta y el archivo log con el nombre _saludos.log_ y la carpeta en _/tmp/date_
-   ![SLO](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LO.gif)
+3. Mostramos el contenido de nuestros archivos
+   ![3](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/3.gif)
 
----
-
-6. Ejecutamos para probar pero antes tenemos que darle permisos de ejecucion al archivo creado
-
-A. Permisos al archivo(buscamos en la carpeta donde lo creamos y ejecutamos lo siguiente)
-![SSU](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-SU.gif)
-
----
-
-B. Ejecutamos el archivo
-![SFUN](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-FUN.gif)
-
----
-
-7. Comprobamos la cracion de la carpeta y el archivo
-   ![SLOG](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-LOG.gif)
-
----
-
-## adjuntamos script
-
+#### Archivo usuario1.sh
 ```javascript
 #!/bin/bash
 
-# Declaramos la variable
-GITHUB_USER="HenrryBran-Hub"
-
-# Declaramos la direccion con la variable anterior
-API_URL="https://api.github.com/users/${GITHUB_USER}"
-
-# Ingresamos el reultado del curl a una variable que castearemos despues
-RESPONSE=$(curl -s "$API_URL")
-
-# Extraemos los datos de la variable RESPONSE github_user
-github_user=$(echo "$RESPONSE" | jq -r '.login')
-# Extraemos los datos de la variable RESPONSE github_id
-github_id=$(echo "$RESPONSE" | jq -r '.id')
-# Extraemos los datos de la variable RESPONSE github_created_at
-github_created_at=$(echo "$RESPONSE" | jq -r '.created_at')
-
-# Imprimimos mensaje
-MSG="Hola $github_user. User Id: $github_id. Cuenta fue creada el: $github_created_at."
-echo "$MSG"
-
-# ---------------CREAMOS EL LOG---------------
-# Obtenemos fecha
-FECHA=$(date +'%Y%m%d')
-
-# Creamos el directorio
-PATH_LOG="/tmp/$FECHA/"
-mkdir -p "$PATH_LOG"
-
-# Creamos el archivo log
-LOG_FILE="$PATH_LOG/saludos.log"
-
-# Escribimos el log
-echo "$MSG" >> "$LOG_FILE"
-
+while true; do
+    read message
+    echo "Mensaje Usuario 1: $message" > usuario1_salida
+    if [[ "$message" == "Salir" ]]; then
+        break
+    fi
+done < usuario1_entrada
 ```
 
-## Creacion del cronjob
+#### Archivo usuario2.sh
+```javascript
+#!/bin/bash
 
-Comando para la creacion del crontab, este lo ingresamos en la terminal y no importa la ruta donde lo ejecute siempre y cuando se ponga vien la ruta donde este el archivo a ejecutarse
+while true; do
+    read message
+    echo "Mensaje Usuario 2: $message" > usuario2_salida
+    if [[ "$message" == "Salir" ]]; then
+        break
+    fi
+done < usuario2_entrada
+```
+---
+
+4. Para ejecutar los dos archivos abrimos dos terminales
+   ![4](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/4.gif)
+
+---
+
+5. Damos permiso de ejecucion a ambos archivos
+   ![5](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/5.gif)
 
 ```javascript
-(crontab -l ; echo "*/2 * * * * cd /home/henrrybran/Documents/SO1-2024/Actividades-Clase/so1_actividades_201314439/actividad2/ && ./Tarea2.sh") | crontab -
+chmod +x usuario1.sh
+chmod +x usuario2.sh
 ```
 
 ---
 
-## ![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO.gif)
-
-Mostramos como esta el crontab en la terminal y como se esta ejecutando
-![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRO2.gif)
-
----
-
-Mostramos como se efectuo el cambio con syslog
+6. Ejecutamos los archivos y probamos si funciona
+   ![6](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/6.gif)
 
 ```javascript
-tail -f /var/log/syslog
+#Para ejecutar el archivo se puede de de varias formas,
+bash  usuario1.sh &
+bash  usuario2.sh &
+
+#Para mandar mensajes  desde una terminal a la otra
+
+#Para el usuario 1
+echo "Mensaje" > usuario2_entrada 
+cat usuario1_salida
+
+#Para el usuario 2
+echo "Mensaje" > usuario1_entrada 
+cat usuario2_salida
+
+
 ```
 
-Mostramos como esta el crontab en la terminal y como se esta ejecutando
-![SCRON](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad2/Img/S-CRON3.gif)
+7. Paramos la ejecucion de los archivos
+   ![7](https://github.com/HenrryBran-Hub/so1_actividades_201314439/blob/main/actividad4/Img/7.gif)
 
----
+```javascript
+#Para detener la ejecucion de los archivos mandamos el mensaje 
+echo "Salir" > usuario2_entrada
+echo "Salir" > usuario1_entrada 
+
+#O tambien detenemos la ejecucion con 
+kill PID
+```
